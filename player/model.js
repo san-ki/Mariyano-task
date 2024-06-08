@@ -10,7 +10,6 @@ const playerSchema = new Schema({
   Team: {
     type: String,
     required: true,
-    unique: true,
   },
   Role: {
     type: String,

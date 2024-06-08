@@ -6,7 +6,7 @@
 
   // use when run by script npm run import_data
   require("dotenv").config({ path: ".env" });
-  const Team = require("../teams/model");
+  // const Team = require("../teams/model");
   const Player = require("../player/model");
 
   async function importPlayers() {
@@ -19,15 +19,15 @@
     console.log(data);
   }
 
-  async function importMatches() {
-    await Team.deleteMany();
-    let teamsData = require("./../data/match.json");
-    for (var p of playersData) {
-      await Player.create(p);
-    }
-    let data = await Player.find();
-    console.log(data);
-  }
+  // async function importMatches() {
+  //   await Team.deleteMany();
+  //   let teamsData = require("./../data/match.json");
+  //   for (var p of playersData) {
+  //     await Player.create(p);
+  //   }
+  //   let data = await Player.find();
+  //   console.log(data);
+  // }
 
   await importPlayers();
   process.exit();

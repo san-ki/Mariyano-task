@@ -5,8 +5,16 @@ console.log(dbName);
 
 // throw new Error("soidfjsdfoij");
 
+// mongoose
+//   .connect(`mongodb://localhost/${dbName}`, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   })
+//   .then(() => console.log("MongoDB connected"))
+//   .catch((err) => console.log(err));
+
 mongoose
-  .connect(`mongodb://localhost/${dbName}`, {
+  .connect(process.env.DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
