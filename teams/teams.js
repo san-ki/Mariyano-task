@@ -22,6 +22,24 @@ const teams = {
       handleErr(req, res, error);
     }
   },
+
+  processResult: async function (req, res) {
+    try {
+      await TeamsClient.processResult();
+      res.status(200).send({ status: true, message: "data processed!!" });
+    } catch (error) {
+      handleErr(req, res, error);
+    }
+  },
+
+  teamResult: async function (req, res) {
+    try {
+      let result = await TeamsClient.teamResult();
+      res.status(200).send({ status: true, data: result });
+    } catch (error) {
+      handleErr(req, res, error);
+    }
+  },
 };
 
 module.exports = teams;
