@@ -1,5 +1,6 @@
 async function handleErr(req, res, err) {
-  console.log(`${err}`);
+  console.log("here");
+  // console.log(`${err}`);
   switch (err.message) {
     case "test":
       break;

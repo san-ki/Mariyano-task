@@ -4,7 +4,7 @@
   // user when run independently
   // require("dotenv").config({ path: "../.env" });
 
-  // use when run by script
+  // use when run by script npm run import_data
   require("dotenv").config({ path: ".env" });
   const Team = require("../teams/model");
   const Player = require("../player/model");
