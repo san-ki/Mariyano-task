@@ -1,0 +1,79 @@
+{
+	"info": {
+		"_postman_id": "1845dbca-d129-4b40-882d-6f3e41cb6bca",
+		"name": "task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18464922"
+	},
+	"item": [
+		{
+			"name": "/add-team",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"team1\",\r\n    \"players\": [\r\n        {\r\n            \"name\": \"RD Gaikwad\",\r\n            \"role\": \"\"\r\n        },\r\n        {\r\n            \"name\": \"DP Conway\",\r\n            \"role\": \"\"\r\n        },\r\n        {\r\n            \"name\": \"Robin Uthappa\",\r\n            \"role\": \"\"\r\n        },\r\n        {\r\n            \"name\": \"C.Hari Nishaanth\",\r\n            \"role\": \"\"\r\n        },\r\n        {\r\n            \"name\": \"Subhranshu Senapati\",\r\n            \"role\": \"\"\r\n        },\r\n        {\r\n            \"name\": \"YBK Jaiswal\",\r\n            \"role\": \"\"\r\n        },\r\n        {\r\n            \"name\": \"D Padikkal\",\r\n            \"role\": \"\"\r\n        },\r\n        {\r\n            \"name\": \"SO Hetmyer\",\r\n            \"role\": \"\"\r\n        },\r\n        {\r\n            \"name\": \"Karun Nair\",\r\n            \"role\": \"\"\r\n        },\r\n        {\r\n            \"name\": \"Rassie Van Der Dussen\",\r\n            \"role\": \"CAPTAIN\"\r\n        },\r\n        {\r\n            \"name\": \"YS Chahal\",\r\n            \"role\": \"VICE_CAPTAIN\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/teams/add-team",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"teams",
+						"add-team"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/process-result",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/teams/process-result",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"teams",
+						"process-result"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/team-result",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/teams/team-result",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"teams",
+						"team-result"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
