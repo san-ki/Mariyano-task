@@ -26,6 +26,10 @@ const teamSchema = new Schema({
     type: [player],
     required: true,
   },
+  score: {
+    type: Number,
+    default: 0,
+  },
 });
 
 module.exports = mongoose.model("Team", teamSchema);
