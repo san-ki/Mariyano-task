@@ -133,6 +133,16 @@ class Client extends connection {
             "WICKETKEEPER",
           ].includes(playerInfo.Role);
         }
+        if (crunch[d.batter].isBatter == null) {
+          // console.log(d.batter);
+          let playerInfo = await Player.findOne({ Player: d.batter });
+
+          crunch[d.batter].isBatter = [
+            "BATTER",
+            "ALL-ROUNDER",
+            "WICKETKEEPER",
+          ].includes(playerInfo.Role);
+        }
         crunch[d.batter].battScore++;
         if (d.batsman_run == 4) crunch[d.batter].battScore += 1;
         if (d.batsman_run == 6) crunch[d.batter].battScore += 2;
@@ -149,15 +159,6 @@ class Client extends connection {
         if (crunch[d.batter].totalRuns >= 100 && !crunch[d.batter].has100) {
           crunch[d.batter].battScore += 16;
           crunch[d.batter].has100 = true;
-        }
-
-        // duck out HAD TO WATCH YOU TUBE FOR THIS
-        if (
-          d.isWicketDelivery &&
-          crunch[d.batter].totalRuns == 0 &&
-          crunch[d.batter].isBatter
-        ) {
-          crunch[d.batter].battScore -= 2;
         }
       }
 
@@ -181,6 +182,25 @@ class Client extends connection {
 
       // fielder score count
       if (d.isWicketDelivery) {
+        // duck out HAD TO WATCH YOU TUBE FOR THIS
+        if (crunch[d.player_out].isBatter == null) {
+          let playerInfo = await Player.findOne({ Player: d.player_out });
+
+          crunch[d.player_out].isBatter = [
+            "BATTER",
+            "ALL-ROUNDER",
+            "WICKETKEEPER",
+          ].includes(playerInfo.Role);
+        }
+
+        if (
+          d.isWicketDelivery &&
+          crunch[d.player_out].totalRuns == 0 &&
+          crunch[d.player_out].isBatter
+        ) {
+          crunch[d.player_out].battScore -= 2;
+        }
+
         switch (d.kind.toLowerCase()) {
           case "run out":
             crunch[d.fielders_involved].fieldScore += 6;
